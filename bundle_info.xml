@@ -12,7 +12,7 @@ will be displayed without the ChimeraX- prefix.
   <!-- Additional information about bundle source -->
   <Author>N283T</Author>
   <Email>w25508b@yokohama-cu.ac.jp</Email>
-  <URL>https://github.com/N283T/ChimeraX-PLDDTColor</URL>
+  <URL>https://github.com/N283T/chimerax-plddtcolor.git</URL>
 
   <!-- Synopsis is a one-line description
        Description is a full multi-line description -->
@@ -23,6 +23,11 @@ will be displayed without the ChimeraX- prefix.
   <Categories>
     <Category name="General"/>
   </Categories>
+
+  <!-- DataFiles is a list of additional files to include in bundle -->
+  <DataFiles>
+    <DataFile>docs/user/commands/plddt.html</DataFile>
+  </DataFiles>
 
   <!-- Dependencies on other ChimeraX/Python packages -->
   <Dependencies>

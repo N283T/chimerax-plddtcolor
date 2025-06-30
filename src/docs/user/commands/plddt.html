@@ -1,6 +1,6 @@
 <html><head>
 <link rel="stylesheet" type="text/css" href="../userdocs.css" />
-<title>Command: color plddt</title>
+<title>Command: plddt</title>
 </head><body>
 
 <a name="top"></a>
@@ -8,49 +8,84 @@
 <img width="60px" src="../ChimeraX-docs-icon.svg" alt="ChimeraX docs icon"
 class="clRight" title="User Guide Index"/></a>
 
-<h3><a href="../index.html#commands">Command</a>: color plddt</h3>
+<h3><a href="../index.html#commands">Command</a>: plddt</h3>
 <h3 class="usage"><a href="usageconventions.html">Usage</a>:
-<br><b>color plddt</b>
-&nbsp;<a href="atomspec.html"><i>spec</i></a>
-[&nbsp;<b>high_cutoff</b>&nbsp;<i>high_cutoff</i>&nbsp;]
-[&nbsp;<b>high_color</b>&nbsp;<a href="color.html#colorname"><i>colorname</i></a>&nbsp;]
-[&nbsp;<b>mid_high_cutoff</b>&nbsp;<i>mid_high_cutoff</i>&nbsp;]
-[&nbsp;<b>mid_high_color</b>&nbsp;<a href="color.html#colorname"><i>colorname</i></a>&nbsp;]
-[&nbsp;<b>mid_low_cutoff</b>&nbsp;<i>mid_low_cutoff</i>&nbsp;]
-[&nbsp;<b>mid_low_color</b>&nbsp;<a href="color.html#colorname"><i>colorname</i></a>&nbsp;]
-[&nbsp;<b>low_cutoff</b>&nbsp;<i>low_cutoff</i>&nbsp;]
-[&nbsp;<b>low_color</b>&nbsp;<a href="color.html#colorname"><i>colorname</i></a>&nbsp;]
-[&nbsp;<b>attribute</b>&nbsp;<i>attribute</i>&nbsp;]
+<br><b>plddt</b>
+[&nbsp;<a href="atomspec.html"><i>atoms</i></a>&nbsp;]
 </h3>
 
-<a name="plddt"/>
+<a name="description"/>
 <p>
-The <b>color plddt</b> command colors atoms and ribbons based on pLDDT values or B-factor values.
-This is particularly useful for visualizing AlphaFold2 prediction results or other structure quality metrics.
+The <b>plddt</b> command colors atoms based on their pLDDT (predicted Local Distance Difference Test) values.
+pLDDT values are typically stored as B-factor values in protein structure files and provide a measure of 
+prediction confidence for each residue. This command automatically applies a color scheme to visualize 
+the prediction accuracy across the protein structure.
 </p>
 
-<p>
-By default, the command uses B-factor values and applies a color scheme with the following thresholds:
-</p>
+<a name="arguments"/>
+<h4>Arguments:</h4>
 <ul>
-<li>≥ 100: Blue (#0053D6) - Very high confidence</li>
-<li>≥ 90: Light blue (#65CBF3) - High confidence</li>
-<li>≥ 70: Yellow (#FFDB13) - Medium confidence</li>
-<li>≥ 50: Orange (#FF7D45) - Low confidence</li>
-<li>&lt; 50: Orange (#FF7D45) - Very low confidence</li>
+<li><b>atoms</b> - Optional atom specification. If not provided, all atoms in all models will be colored.
+    If specified, only the selected atoms will be colored based on their pLDDT values.
+</li>
 </ul>
 
-<p>
-The <b>high_cutoff</b>, <b>mid_high_cutoff</b>, <b>mid_low_cutoff</b>, and <b>low_cutoff</b> options allow you to customize these thresholds.
-The <b>high_color</b>, <b>mid_high_color</b>, <b>mid_low_color</b>, and <b>low_color</b> options allow you to customize the colors.
-The <b>attribute</b> option allows you to specify which atomic attribute to use for coloring (default is "bfactor").
-</p>
+<a name="colorscheme"/>
+<h4>Color Scheme:</h4>
+<p>The command applies the following color scheme based on pLDDT values:</p>
+<ul>
+<li><b>Very High (90-100):</b> Blue (#0053D6) - Very high confidence</li>
+<li><b>High (70-89):</b> Light Blue (#65CBE3) - High confidence</li>
+<li><b>Medium (50-69):</b> Yellow (#FFDB13) - Medium confidence</li>
+<li><b>Low (0-49):</b> Orange (#FF7D45) - Low confidence</li>
+</ul>
 
-<p>
-If no atoms are specified, all atoms in the current session will be colored.
-</p>
+<a name="output"/>
+<h4>Output:</h4>
+<p>The command provides detailed statistics for each processed model, including:</p>
+<ul>
+<li>Minimum, maximum, mean, and median pLDDT values</li>
+<li>Standard deviation of pLDDT values</li>
+<li>Total number of atoms processed</li>
+<li>Number of atoms colored at each threshold</li>
+</ul>
+<p>Statistics are displayed in both the log and as an HTML table for easy reading.</p>
+
+<a name="examples"/>
+<h4>Examples:</h4>
+<blockquote>
+<b>plddt</b><br>
+<i>Color all atoms in all models based on their pLDDT values</i>
+</blockquote>
+
+<blockquote>
+<b>plddt sel</b><br>
+<i>Color only the currently selected atoms based on their pLDDT values</i>
+</blockquote>
+
+<blockquote>
+<b>plddt #1</b><br>
+<i>Color all atoms in model #1 based on their pLDDT values</i>
+</blockquote>
+
+<a name="notes"/>
+<h4>Notes:</h4>
+<ul>
+<li>pLDDT values must be stored as B-factor values in the structure file</li>
+<li>Ribbon colors are automatically updated to match the atom colors</li>
+<li>The command processes multiple models simultaneously if present</li>
+<li>Statistical information is provided for each model separately</li>
+</ul>
+
+<a name="seealso"/>
+<h4>See also:</h4>
+<ul>
+<li><a href="color.html">color</a> - General coloring commands</li>
+<li><a href="bfactor.html">bfactor</a> - Display B-factor values</li>
+<li><a href="ribbon.html">ribbon</a> - Ribbon display commands</li>
+</ul>
 
 <hr>
-<address>Naga ET / 
+<address>N283T / 
 December 2024</address>
 </body></html> 
