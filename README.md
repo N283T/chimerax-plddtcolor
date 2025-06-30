@@ -1,5 +1,5 @@
 # ChimeraX-PLDDTColor
-
+![Example output of plddt command](ex.png)
 A ChimeraX bundle for automatic coloring of atoms based on pLDDT values. Especially useful for visualizing AlphaFold3 predictions and other structure quality metrics.
 
 ## Overview
@@ -85,6 +85,11 @@ The bundle logs the following information:
 Statistics are displayed as an HTML table for easy comparison across models.
 
 **Cartoon Coloring:** Cartoon colors are automatically updated based on the average pLDDT values of all atoms in each residue. This provides a residue-level view of prediction confidence that complements the atom-level coloring.
+
+**Example Output:**  
+Below is an example of the ChimeraX window after running the `plddt` command. The structure is colored by pLDDT, and the log panel shows detailed statistics for each model.
+
+![Example output of plddt command](ex.png)
 
 ## License
 
@@ -179,6 +184,11 @@ plddt [atoms]
 統計情報はHTMLテーブル形式で表示され、複数モデルの比較が容易です。
 
 **リボン色分け:** リボンの色は各残基内のすべての原子のpLDDT値の平均に基づいて自動的に更新されます。これにより、原子レベルの色分けを補完する残基レベルの予測信頼度の視覚化が提供されます。
+
+**出力例:**  
+下図は `plddt` コマンド実行後のChimeraX画面例です。構造がpLDDTで色分けされ、ログパネルには各モデルの詳細な統計情報が表示されています。
+
+![plddtコマンドの出力例](ex.png)
 
 ## ライセンス
 
